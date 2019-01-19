@@ -13,11 +13,11 @@ class NeuralNetwork():
 		return x * (1-x)
 
 	def train(self,trainData_inputs,trainData_outputs,epochs):
-	for epoch in range(epochs):
-		predict = self.think(trainData_inputs)
-		bias = trainData_outputs - predict
-		adjustment = dot(trainData_inputs.T, bias * self.sigmoid_derivative(predict))
-		self.weight += adjustment
+		for epoch in range(epochs):
+			predict = self.think(trainData_inputs)
+			bias = trainData_outputs - predict
+			adjustment = dot(trainData_inputs.T, bias * self.sigmoid_derivative(predict))
+			self.weight += adjustment
 
 	def think(self,inputs):
 		return self.sigmoid(dot(inputs,self.weight))
