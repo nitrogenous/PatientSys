@@ -9,8 +9,11 @@ class NeuralNetwork():
 	def sigmoid(self,x):
 		return 1 / (1+exp(-x))
 
-	def sigmoid_derivative(sef,x):
+	def sigmoid_derivative(self,x):
 		return x * (1-x)
+
+	def think(self,inputs):
+		return self.sigmoid(dot(inputs,self.weight))
 
 	def train(self,trainData_inputs,trainData_outputs,epochs):
 		for epoch in range(epochs):
@@ -19,8 +22,6 @@ class NeuralNetwork():
 			adjustment = dot(trainData_inputs.T, bias * self.sigmoid_derivative(predict))
 			self.weight += adjustment
 
-	def think(self,inputs):
-		return self.sigmoid(dot(inputs,self.weight))
 
 neural = NeuralNetwork()
 
