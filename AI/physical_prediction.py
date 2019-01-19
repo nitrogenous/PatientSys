@@ -9,3 +9,5 @@ class NeuralNetwork():
 	def sigmoid(self,x):
 		return 1 / (1+exp(-x))
 
+	def sigmoid_derivative(sef,x):
+		return x * (1-x)
