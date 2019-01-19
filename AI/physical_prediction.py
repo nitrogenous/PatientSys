@@ -18,3 +18,6 @@ class NeuralNetwork():
 		bias = trainData_outputs - predict
 		adjustment = dot(trainData_inputs.T, bias * self.sigmoid_derivative(predict))
 		self.weight += adjustment
+
+	def think(self,inputs):
+		return self.sigmoid(dot(inputs,self.weight))
