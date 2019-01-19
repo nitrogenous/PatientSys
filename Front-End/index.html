@@ -1,9 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PatientSys</title>
 </head>
-<body>
+<body>   
+    <div>
+        Age:
+        <select id='age'>
+            <option value='0.10'>10-20</option>
+            <option value='0.20'>20-30</option>
+            <option value='0.30'>40-50</option>
+            <option value='0.40'>60-70</option>
+            <option value='0.50'>80-90</option>
+        </select>
+        Gender:
+        <select id='gender'>
+            <option value='0'>Male</option>
+            <option value='1'>Female</option>
+        </select>
+        Weight:
+        <select id='weight'>
+            <option value='0.25'>0-25</option>
+            <option value='0.50'>25-50</option>
+            <option value='0.75'>50-75</option>
+            <option value='1.00'>75-100</option>
+        </select>
+        Sport:
+        <select id='sport'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select>
+        Tobacco:
+        <select id='tobacco'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select>
+        Alcohol:
+        <select id='alcohol'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select>
+        Family Cancer Member:
+        <select id='fcm'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select>
 
+        <button onclick='push()'>SEND</button>
+    </div>
+     
+     <script>
+        function push(){
+            const url = "http://example.com";
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    psy: {
+                        gender: document.getElementById('gender').value,
+                        age: document.getElementById('age').value,
+                        weight: document.getElementById('weight').value,
+                    },
+                    factors: {
+                        sport: document.getElementById('sport').value,
+                        tobacco: document.getElementById('tobacco').value,
+                        alcohol: document.getElementById('alcohol').value,
+                    }   
+                })
+            }).then(
+                response => response.text()
+            ).then(
+                html => console.log(html)
+            );
+        };
+     </script>
 </body>
 </html>
