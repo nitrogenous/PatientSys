@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PatientSys</title>
 </head>
-<body>   
+<body>
+    <a href='table.html'><button>Table</button></a>
     <div>
+        Name:<input type='text' id='name'>
+        Surname:<input type='text' id='surname'>
         Age:
         <select id='age'>
             <option value='0.10'>10-20</option>
@@ -18,8 +21,8 @@
         </select>
         Gender:
         <select id='gender'>
-            <option value='0'>Male</option>
-            <option value='1'>Female</option>
+            <option value='0'>Female</option>
+            <option value='1'>Male</option>
         </select>
         Weight:
         <select id='weight'>
@@ -43,8 +46,8 @@
             <option value='0'>Yes</option>
             <option value='1'>No</option>
         </select>
-        Family Cancer Member:
-        <select id='fcm'>
+        Family History:
+        <select id='familyHistory'>
             <option value='0'>Yes</option>
             <option value='1'>No</option>
         </select>
@@ -58,17 +61,25 @@
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
-                    psy: {
-                        gender: document.getElementById('gender').value,
-                        age: document.getElementById('age').value,
-                        weight: document.getElementById('weight').value,
-                    },
-                    factors: {
-                        sport: document.getElementById('sport').value,
-                        tobacco: document.getElementById('tobacco').value,
-                        alcohol: document.getElementById('alcohol').value,
-                    }   
+                    saveUser:{
+                        info: {
+                            name: document.getElementById('name').value,
+                            surname: document.getElementById('surname').value,
+                        },
+                        psy: {
+                            gender: document.getElementById('gender').value,
+                            age: document.getElementById('age').value,
+                            weight: document.getElementById('weight').value,
+                        },
+                        factors: {
+                            sport: document.getElementById('sport').value,
+                            tobacco: document.getElementById('tobacco').value,
+                            alcohol: document.getElementById('alcohol').value,
+                            familyHistory: document.getElementById('familyHistory').value
+                        } 
+                    }
                 })
+            
             }).then(
                 response => response.text()
             ).then(
