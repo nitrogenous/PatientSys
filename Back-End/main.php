@@ -16,7 +16,7 @@ function connectDB(){
 	die(200);
 }
 
-function saveDate($con,$sql){
+function saveData($con,$sql){
 	if(mysqli_query($con,$sql)){
 		die(200);
 	}
@@ -39,7 +39,7 @@ function getData($con,$sql){
 
 function predictPatient($predictionFile,$inputData){
 	// $command = escapeshellcmd('/var/www/html/hackathon/AI/physical_prediction.py');
-	$output = shell_exec("python /var/www/html/hackathon/AI/physical_prediction.py '".$inputData."'");
+	$output = shell_exec("python /var/www/html/hackathon/AI/".$predictionFile.".py '".$inputData."'");
 	// var_dump($output);
 	return $output;
 }
