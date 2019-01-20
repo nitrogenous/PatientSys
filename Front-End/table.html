@@ -41,85 +41,60 @@
 
 </html>
 <script>
-    function loadUsers(){
-        var users = {
-            1: {
-                info: {
-                    name: 'Toprak',
-                    surname: 'Ogulcan',
-                },
-                psy: {
-                    gender: 'male',
-                    age: '18',
-                    weight: '98',
-                },
-                factors: {
-                    sport: '1',
-                    tobacco: '0',
-                    alcohol: '1',
-                    familyHistory: '1',
-                },
+    var users = {
+        1: {
+            info: {
+                name: 'Toprak',
+                surname: 'Ogulcan',
             },
-            2: {
-                info: {
-                    name: 'Mahmut',
-                    surname: 'Tuncer',
-                },
-                psy: {
-                    gender: 'female',
-                    age: '84',
-                    weight: '200',
-                },
-                factors: {
-                    sport: '0',
-                    tobacco: '1',
-                    alcohol: '1',
-                    familyHistory: '1',
-                },
+            psy: {
+                gender: 'male',
+                age: '18',
+                weight: '98',
             },
-            3: {
-                info: {
-                    name: 'Mahmut',
-                    surname: 'Tuncer',
-                },
-                psy: {
-                    gender: 'female',
-                    age: '84',
-                    weight: '200',
-                },
-                factors: {
-                    sport: '0',
-                    tobacco: '1',
-                    alcohol: '1',
-                    familyHistory: '1',
-                },
-            }
-        };
-        console.log(users);
-        var lines = document.createElement('div');
-        lines.classList.add("lines");
-        lines.id = "lines";
-        for(var i = 1;i <= objLength(users); i++){
-            console.log(i);
-            var lineDiv = document.createElement('div');
-            var lineText = document.createElement('p');
-        
-            lineDiv.id = "lineDiv"+i;
-            lineDiv.id = "lineDiv"+i;
-            lineDiv.classList.add("lineDiv");
-            lineText.classList.add("lineText");
-            lineDiv.appendChild(lineText);
-            lines.appendChild(lineDiv);
+            factors: {
+                sport: '1',
+                tobacco: '0',
+                alcohol: '1',
+                familyHistory: '1',
+            },
+        },
+        2: {
+            info: {
+                name: 'Mahmut',
+                surname: 'Tuncer',
+            },
+            psy: {
+                gender: 'female',
+                age: '84',
+                weight: '200',
+            },
+            factors: {
+                sport: '0',
+                tobacco: '1',
+                alcohol: '1',
+                familyHistory: '1',
+            },
         }
-        document.getElementById('table').appendChild(lines);
-
-    }
-    function objLength(obj){
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+    };
+    function loadUsers(){
+            var lines = document.createElement('div');
+            lines.classList.add("lines");
+            lines.id = "lines";
+            for(var i = 1;i <= 5; i++){
+                console.log(i);
+                var lineDiv = document.createElement('div');
+                var lineText = document.createElement('p');
+                
+                lineDiv.id = "lineDiv"+i;
+                lineDiv.id = "lineDiv"+i;
+                lineDiv.classList.add("lineDiv");
+                lineText.classList.add("lineText");
+                lineDiv.appendChild(lineText);
+                lines.appendChild(lineDiv);
             }
-        return size;
+            document.getElementById('table').appendChild(lines);
+
     }
 
     function getUsers() {
