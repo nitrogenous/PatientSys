@@ -15,12 +15,11 @@ if(isset($_POST)){
 
 		$factors = array(sport => $_POST['sport'],tobacco => $_POST['tobacco'],alcohol => $_POST['alcohol'],familyHistory => $_POST['familyHistory'],physicalAvg => $physicalAvg);
 
-		$factorsAvg = 1.0 - json_decode(predictPatient('factors_prediction',json_encode($factors)))[0];
+		$factorsAvg = json_decode(predictPatient('factors_prediction',json_encode($factors)))[0];
 
-
-		echo $physicalAvg.' '.$factorsAvg;
-		die();
-		connectDB();
+		$con = connectDB();
+		$sql = 'INSERT INTO `usersDatabase`(`patientAvg`, `name`, `surname`, `gender`, `age`, `weight`, `sport`, `tobacco`, `alcohol`, `familyHistory`, `physicalAvg`) VALUES ('.$factorsAvg.',"'.$_POST['name'].'","'.$_POST['surname'].'",'.$_POST['gender'].','.$_POST['age'].','.$_POST['weight'].','.$_POST['sport'].','.$_POST['tobacco'].','.$_POST['alcohol'].','.$_POST['familyHistory'].','.$physicalAvg.')';
+		echo saveData($con,$sql);
 		die('savee');
 	}
 	else if('getUsers' == $_POST['getUsers']){
