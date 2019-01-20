@@ -28,13 +28,35 @@ neural = NeuralNetwork()
 
 userData = sys.argv[1]
 userData = json.loads(userData)
-# print userData['age']
+
 # print neural.weight
 
-trainData_inputs = array([[0.0, 0.0, 1.0], [1.0, 1.0, 1.0], [1.0, 0.0, 1.0], [0.0, 1.0, 1.0]])
-trainData_outputs = array([[0, 1, 1, 0]]).T
+trainData_inputs = array([
+	[1.0, 0.75, 1.00], 
+	[0.0, 0.30, 0.50], 
+	[0.0, 0.60, 0.75],
+	[1.0, 0.45, 1.00],
+	[0.0,0.30,0.75],
+	[1.0,0.30,0.75],
+	[0.0,0.45,0.50],
+	[1.0,0.75,0.50],
+	[0.0,0.75,0.75],
+	[1.0,0.90,1.0],
+])
+trainData_outputs = array([[
+	0.9166666667,
+	0.2666666667,
+	0.45,
+	0.8166666667,
+	0.35,
+	0.6833333333,
+	0.3166666667,
+	0.75,
+	0.5,
+	0.9666666667,
+]]).T
 
-neural.train(trainData_inputs, trainData_outputs, 10)
+neural.train(trainData_inputs, trainData_outputs, 100000)
 
 # print neural.weight
 

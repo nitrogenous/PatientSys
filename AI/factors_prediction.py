@@ -1,5 +1,6 @@
 from numpy import exp, array, random, dot
 import matplotlib.pyplot as plt
+import sys, json
 
 class NeuralNetwork():
 	
@@ -25,13 +26,47 @@ class NeuralNetwork():
 
 neural = NeuralNetwork()
 
-print neural.weight
+userData = sys.argv[1]
+userData = json.loads(userData)
 
-trainData_inputs = array([[0,0,0,0,1],[0,0,0,1,0],[0,0,1,0,0],[0,1,0,0,0],[1,0,0,0,0]])
-trainData_outputs = array([[0,1,0,1,0]]).T
+# print neural.weight
+
+
+
+
+
+
+
+
+
+
+trainData_inputs = array([
+	[0.0,0.0,0.0,1.0,0.9166666667],
+	[1.0,0.0,1.0,0.0,0.2666666667],
+	[0.0,1.0,0.0,0.0,0.45],
+	[1.0,0.0,0.0,0.0,0.8166666667],
+	[1.0,1.0,1.0,0.0,0.35],
+	[0.0,0.0,1.0,0.0,0.6833333333],
+	[1.0,0.0,0.0,1.0,0.3166666667],
+	[0.0,1.0,0.0,0.0,0.75],
+	[0.0,0.0,0.0,1.0,0.5],
+	[0.0,1.0,1.0,1.0,0.9666666667],
+])
+trainData_outputs = array([[
+	0.3833333333,
+	0.4533333333,
+	0.29,
+	0.3633333333,
+	0.67,
+	0.3366666667,
+	0.4633333333,
+	0.35,
+	0.3,
+	0.7933333333,
+]]).T
 
 neural.train(trainData_inputs,trainData_outputs, 10000)
 
-print neural.weight
+# print neural.weight
 
-print neural.think(array([1,1,0,0,0]))
+print neural.think(array([float(userData['sport']),float(userData['tobacco']),float(userData['alcohol']),float(userData['familyHistory']),float(userData['physicalAvg'])]))
