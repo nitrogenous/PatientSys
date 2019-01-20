@@ -9,7 +9,7 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     // CSS'deki breakpointi gecmek icin + 1 her zaman.
-    width: 1281,
+    width: 1350,
     height: 800,
     minWidth: 1281,
     minHeight: 800,
