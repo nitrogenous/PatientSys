@@ -1,111 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <title>PatientSys</title>
+    <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+    <script type='text/javascript'>        
+        $( document ).ready(function() {
+            var formData = new FormData();
+            formData.append('getUsers','getUsers');
+            $.ajax({
+                url: 'https://overclockmakinesi.com/hackathon/Back-End/welcome.php',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+                    document.getElementById('users').value = data;
+                }
+            }).then(() => {
+                var data = JSON.parse(document.getElementById('users').value);
+                console.log(data);
+                for(var i = 0; i < data.length; i++){
+                    var lineDiv = document.createElement('div');
+                    lineDiv.classList.add('lineDiv');
+                    lineDiv.id = 'lineDiv'+i;
+                    
+                    data[i].forEach((item, index) => {
+                        var lineText = document.createElement('p');
+                        lineText.classList.add('lineText');
+                        lineText.id = index+i;
+                        lineText.innerHTML = item;
+                        lineDiv.appendChild(lineText);
+                        console.log(item);
+                    })
+                    console.log(i);
+
+                    document.getElementById('lines').appendChild(lineDiv);                    
+                }
+
+                
+            })
+
+        });
+    </script>
+
+    <style>
+        html{
+          margin: 0;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-image: linear-gradient(#44475a, #1c2b44);
+        }
+        html p{
+            color: #f8f8f2;
+        }
+        *{
+            font-family: 'Open Sans';
+        }
+        button {
+            display: inline-block;
+            padding: 5px 5px;
+            /*font-size: 24px;*/
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: black;
+            background-color: #dddddd;
+            border: none;
+            border-radius: 5px;
+            position: relative;
+            text-transform: uppercase;
+            box-shadow: 0 5px #9b9999;
+        }
+
+        button:hover {background-color: #afacac}
+
+        button:active {
+            background-color: #dddddd;
+            box-shadow: 0 5px #9b9999;
+            transform: translateY(4px);
+        }
+        #table{
+            /*text-align: center;*/
+            justify-content: center;
+        }
+        #title p{
+            width: 75px;
+            height: 25px;
+            padding: 15px;
+            border-right: 2px solid #f8f8f2;
+            border-left: : 2px solid #f8f8f2;
+            text-align: center;
+            vertical-align: middle;
+            margin: -2px;
+            display: inline-block;
+        }
+        #lines p{
+            padding: 15px;
+            border-right: 2px solid #f8f8f2;
+            border-left: : 2px solid #f8f8f2;
+            width: 75px;
+            height: 25px;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    </style>
+
 </head>
 
-<body onload='loadUsers()'>
-    <p id='users' value='' hidden></p>
+<body>
+    <input id='users' type='hidden' value=''></input>
     <div id='table'>
+        <a href='index.html'><button>🏠</button></a>
+        <button value='refresh' onClick='window.location.reload()'>🔄</button>
         <div id='title'>
-            <div class='tableTitle'>
-                <p>Age</p>
-                <p id='age' style="color:blue"></p>
-            </div>
-            <div class='tableTitle'>
-                <p>Gender</p>
-            </div>
-            <div class='tableTitle'>
-                <p>Weight</p>
-            </div>
-            <div class='tableTitle'>
-                <p>Sport</p>
-            </div>
-            <div class='tableTitle'>
-                <p>Tobacco</p>
-            </div>
-            <div class='tableTitle'>
-                <p>Alcohol</p>
-            </div>
-            <div class='tableTitle'>
-                <p>Family History</p>
-            </div>
+            <p>Patient Number</p>
+            <p>Sickness Avg</p>
+            <p>Name</p>
+            <p>Surname</p>
+            <p>Gender</p>
+            <p>Age</p>
+            <p>Weight</p>
+            <p>Sport</p>
+            <p>Tobacco</p>
+            <p>Alcohol</p>
+            <p>Family History</p>
+            <p>Physical Avg</p>
+        </div>
+        <div id='lines'>
+
         </div>
     </div>
-    <button value="Refresh Page" onClick="window.location.reload()">Refresh</button>
-    <a href='index.html'> <button>Home</button></a>
 </body>
-
 </html>
-<script>
-    var users = {
-        1: {
-            info: {
-                name: 'Toprak',
-                surname: 'Ogulcan',
-            },
-            psy: {
-                gender: 'male',
-                age: '18',
-                weight: '98',
-            },
-            factors: {
-                sport: '1',
-                tobacco: '0',
-                alcohol: '1',
-                familyHistory: '1',
-            },
-        },
-        2: {
-            info: {
-                name: 'Mahmut',
-                surname: 'Tuncer',
-            },
-            psy: {
-                gender: 'female',
-                age: '84',
-                weight: '200',
-            },
-            factors: {
-                sport: '0',
-                tobacco: '1',
-                alcohol: '1',
-                familyHistory: '1',
-            },
-        }
-    };
-    function loadUsers(){
-            var lines = document.createElement('div');
-            lines.classList.add("lines");
-            lines.id = "lines";
-            for(var i = 1;i <= 5; i++){
-                console.log(i);
-                var lineDiv = document.createElement('div');
-                var lineText = document.createElement('p');
-                
-                lineDiv.id = "lineDiv"+i;
-                lineDiv.id = "lineDiv"+i;
-                lineDiv.classList.add("lineDiv");
-                lineText.classList.add("lineText");
-                lineDiv.appendChild(lineText);
-                lines.appendChild(lineDiv);
-            }
-            document.getElementById('table').appendChild(lines);
-
-    }
-    function getUsers() {
-        const url = "http://example.com";
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify('getUsers')
-        }).then((response) => {
-            response => response.text();
-            document.getElementById('users').value = response;
-        })
-    };
-    getUsers();
-</script>
