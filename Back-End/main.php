@@ -37,19 +37,11 @@ function getData($con,$sql){
 	}
 }
 
-function predictPatient($predictionFile){
-	$command = escapeshellcmd('/var/www/html/hackathon/AI/physical_prediction.py');
-	$output = shell_exec('python /var/www/html/hackathon/AI/physical_prediction.py');
+function predictPatient($predictionFile,$inputData){
+	// $command = escapeshellcmd('/var/www/html/hackathon/AI/physical_prediction.py');
+	$output = shell_exec("python /var/www/html/hackathon/AI/physical_prediction.py '".$inputData."'");
 	// var_dump($output);
 	return $output;
-}
-
-function createCSV($fileName,$inputData){
-	$csv = fopen('/var/www/html/hackathon/AI/'.$fileName.'.csv','w+');
-	foreach ($inputData as $data){
-		fputcsv($csv, explode(',',$data));
-	}
-	fclose($csv);
 }
 
 function injection($str) {
