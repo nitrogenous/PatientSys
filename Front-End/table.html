@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PatientSys</title>
+</head>
+
+<body onload='loadUsers()'>
+    <p id='users' value='' hidden></p>
+    <div id='table'>
+        <div id='title'>
+            <div class='tableTitle'>
+                <p>Age</p>
+                <p id='age' style="color:blue"></p>
+            </div>
+            <div class='tableTitle'>
+                <p>Gender</p>
+            </div>
+            <div class='tableTitle'>
+                <p>Weight</p>
+            </div>
+            <div class='tableTitle'>
+                <p>Sport</p>
+            </div>
+            <div class='tableTitle'>
+                <p>Tobacco</p>
+            </div>
+            <div class='tableTitle'>
+                <p>Alcohol</p>
+            </div>
+            <div class='tableTitle'>
+                <p>Family History</p>
+            </div>
+        </div>
+    </div>
+    <a href='index.html'> <button>Home</button></a>
+</body>
+
+</html>
+<script>
+    var users = {
+        1: {
+            info: {
+                name: 'Toprak',
+                surname: 'Ogulcan',
+            },
+            psy: {
+                gender: 'male',
+                age: '18',
+                weight: '98',
+            },
+            factors: {
+                sport: '1',
+                tobacco: '0',
+                alcohol: '1',
+                familyHistory: '1',
+            },
+        },
+        2: {
+            info: {
+                name: 'Mahmut',
+                surname: 'Tuncer',
+            },
+            psy: {
+                gender: 'female',
+                age: '84',
+                weight: '200',
+            },
+            factors: {
+                sport: '0',
+                tobacco: '1',
+                alcohol: '1',
+                familyHistory: '1',
+            },
+        }
+    };
+    function loadUsers(){
+            var lines = document.createElement('div');
+            lines.classList.add("lines");
+            lines.id = "lines";
+            for(var i = 1;i <= 5; i++){
+                console.log(i);
+                var lineDiv = document.createElement('div');
+                var lineText = document.createElement('p');
+                
+                lineDiv.id = "lineDiv"+i;
+                lineDiv.id = "lineDiv"+i;
+                lineDiv.classList.add("lineDiv");
+                lineText.classList.add("lineText");
+                lineDiv.appendChild(lineText);
+                lines.appendChild(lineDiv);
+            }
+            document.getElementById('table').appendChild(lines);
+
+    }
+
+    function getUsers() {
+        const url = "http://example.com";
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify('getUsers')
+        }).then((response) => {
+            response => response.text();
+            document.getElementById('users').value = response;
+        })
+    };
+    getUsers();
+</script>
