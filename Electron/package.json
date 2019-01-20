@@ -1,0 +1,13 @@
+{
+  "name": "patientsys",
+  "version": "1.0.0",
+  "description": "patientsys electron app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "lexor",
+  "devDependencies": {
+    "electron": "^4.0.1"
+  }
+}
