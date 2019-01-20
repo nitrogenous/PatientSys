@@ -30,10 +30,12 @@ function saveData($con,$sql){
 
 function getData($con,$sql){
 	$result = mysqli_query($con,$sql);
+	$data = array();
 	if (mysqli_num_rows($result) > 0){
 		while ($row = mysqli_fetch_assoc($result)){
-			echo $row;
+			array_push($data,$row);
 		}
+		return json_encode($data);
 	}
 	else{
 		echo '0 result';
