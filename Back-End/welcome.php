@@ -6,16 +6,20 @@ include 'main.php';
 
 if(isset($_POST)){
 	if('save' == $_POST['save']){
-		$info = array(name => $_POST['name'], surname => $_POST['surname']);
-		print_r($info);
-		$physical = array(gender => $_POST['gender'], age => $_POST['age'],weight => $_POST['weight']);
-		print_r($physical);
+		
+		$info = array(name => $_POST['name'],surname => $_POST['surname']);
 
-		createCSV('physical',$physical);
-		die(predictPatient('physical_prediction'));
+		$physical = array(gender => $_POST['gender'], age => $_POST['age'], weight => $_POST['weight']);
 
-		$factors = array(sport => $_POST['sport'], tobacco => $_POST['tobacco'],alcohol => $_POST['alcohol'], familyHistory => $_POST['familyHistory']);
-		print_r($factors);
+		$physicalAvg = json_decode(predictPatient('physical_prediction',json_encode($physical)))[0];
+
+		$factors = array(sport => $_POST['sport'],tobacco => $_POST['tobacco'],alcohol => $_POST['alcohol'],familyHistory => $_POST['familyHistory'],physicalAvg => $physicalAvg);
+
+		$factorsAvg = 1.0 - json_decode(predictPatient('factors_prediction',json_encode($factors)))[0];
+
+
+		echo $physicalAvg.' '.$factorsAvg;
+		die();
 		connectDB();
 		die('savee');
 	}
