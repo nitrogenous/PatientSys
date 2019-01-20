@@ -1,4 +1,9 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
+
 function connectDB(){
 	$servername = 'localhost';
 	$username = 'backend';
@@ -30,6 +35,21 @@ function getData($con,$sql){
 	else{
 		echo '0 result';
 	}
+}
+
+function predictPatient($predictionFile){
+	$command = escapeshellcmd('/var/www/html/hackathon/AI/physical_prediction.py');
+	$output = shell_exec('python /var/www/html/hackathon/AI/physical_prediction.py');
+	// var_dump($output);
+	return $output;
+}
+
+function createCSV($fileName,$inputData){
+	$csv = fopen('/var/www/html/hackathon/AI/'.$fileName.'.csv','w+');
+	foreach ($inputData as $data){
+		fputcsv($csv, explode(',',$data));
+	}
+	fclose($csv);
 }
 
 function injection($str) {
