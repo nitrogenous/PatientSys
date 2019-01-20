@@ -6,9 +6,18 @@ function connectDB(){
 
 	$con = mysqli_connect($servername,$username,$password);
 	if(!$con){
-		die(mysqli_connect_error());
+		die(400,' ',mysqli_connect_error());
 	}
-	echo 'success';
+	die(200);
+}
+
+function saveDate($con,$sql){
+	if(mysqli_query($con,$sql)){
+		die(200);
+	}
+	else{
+		die(400);
+	}
 }
 
 function getData($con,$sql){
@@ -21,6 +30,5 @@ function getData($con,$sql){
 	else{
 		echo '0 result';
 	}
-	mysqli_close($con);
-
 }
+
