@@ -1,5 +1,6 @@
-from numpy import exp, array, random, dot, genfromtxt
+from numpy import exp, array, random, dot
 import matplotlib.pyplot as plt
+import sys, json
 
 class NeuralNetwork():
 	
@@ -7,10 +8,10 @@ class NeuralNetwork():
 		self.weight = 2 * random.random((3,1)) - 1
 
 	def sigmoid(self,x):
-		return 1 / (1+exp(-x))
+		return 1.0 / (1.0+exp(-x))
 
 	def sigmoid_derivative(self,x):
-		return x * (1-x)
+		return x * (1.0-x)
 
 	def think(self,inputs):
 		return self.sigmoid(dot(inputs,self.weight))
@@ -25,15 +26,16 @@ class NeuralNetwork():
 
 neural = NeuralNetwork()
 
-userData = genfromtxt('physical.csv');
-print userData
+userData = sys.argv[1]
+userData = json.loads(userData)
+# print userData['age']
 # print neural.weight
 
-# trainData_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
-# trainData_outputs = array([[0, 1, 1, 0]]).T
+trainData_inputs = array([[0.0, 0.0, 1.0], [1.0, 1.0, 1.0], [1.0, 0.0, 1.0], [0.0, 1.0, 1.0]])
+trainData_outputs = array([[0, 1, 1, 0]]).T
 
-# neural.train(trainData_inputs, trainData_outputs, 10000)
+neural.train(trainData_inputs, trainData_outputs, 10)
 
 # print neural.weight
 
-# print neural.think(array([1, 0, 0]))
+print neural.think(array([float(userData['gender']), float(userData['age']), float(userData['weight'])]))
