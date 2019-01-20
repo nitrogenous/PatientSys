@@ -1,100 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+ 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PatientSys</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+ 
+    <script type="text/javascript">
+        $(function() {
+            $('#submit').click(function(e) {
+                e.preventDefault();
+                var _form = document.getElementById("userInput");
+                var formData = new FormData(_form);
+                $.ajax({
+                    url: "https://overclockmakinesi.com/hackathon/Back-End/welcome.php",
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function(dataofconfirm) {
+                        console.log(dataofconfirm);
+                        // do something with the result
+                    }
+                });
+            });
+        });
+    </script>
+ 
 </head>
-
+ 
 <body>
-    <div>
-        Name:<input type='text' id='name'>
-        Surname:<input type='text' id='surname'>
-        Age:
-        <select id='age'>
+    <form id='userInput'>
+        <input type="hidden" name="save" value="save" />
+        Name: <input type='text' id='name' name="name">
+        Surname: <input type='text' id='surname' name="surname" /> Age:
+        <select name="age" id='age'>
             <option value='0.10'>10-20</option>
             <option value='0.20'>20-30</option>
             <option value='0.30'>40-50</option>
             <option value='0.40'>60-70</option>
             <option value='0.50'>80-90</option>
-        </select>
-        Gender:
-        <select id='gender'>
+        </select> Gender:
+        <select name="gender" id='gender'>
             <option value='0'>Female</option>
             <option value='1'>Male</option>
-        </select>
-        Weight:
-        <select id='weight'>
+        </select> Weight:
+        <select name="weight" id='weight'>
             <option value='0.25'>0-25</option>
             <option value='0.50'>25-50</option>
             <option value='0.75'>50-75</option>
             <option value='1.00'>75-100</option>
-        </select>
-        Sport:
-        <select id='sport'>
+        </select> Sport:
+        <select name="sport" id='sport'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select> Tobacco:
+        <select name="tobacco" id='tobacco'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select> Alcohol:
+        <select name="alcohol" id='alcohol'>
+            <option value='0'>Yes</option>
+            <option value='1'>No</option>
+        </select> Family History:
+        <select name="familyHistory" id='familyHistory'>
             <option value='0'>Yes</option>
             <option value='1'>No</option>
         </select>
-        Tobacco:
-        <select id='tobacco'>
-            <option value='0'>Yes</option>
-            <option value='1'>No</option>
-        </select>
-        Alcohol:
-        <select id='alcohol'>
-            <option value='0'>Yes</option>
-            <option value='1'>No</option>
-        </select>
-        Family History:
-        <select id='familyHistory'>
-            <option value='0'>Yes</option>
-            <option value='1'>No</option>
-        </select>
-
-        <button onclick='push()'>Add User</button>
-        <a href='table.html'><button>Table</button></a>
-
-    </div>
-
+        <a href='table.html'>Table</a>
+        <button type="button" id="submit">Add User</button>
+    </form>
 </body>
-
+ 
 </html>
-<script>
-    function push() {
-        const url = "https://overclockmakinesi.com/hackathon/Back-End/welcome.php";
-        var formdata = new FormData();
-        formdata.append(
-            'saveUser',
-            {    
-                info: {
-                    name: document.getElementById('name').value,
-                    surname: document.getElementById('surname').value,
-                },
-                physical: {
-                    gender: document.getElementById('gender').value,
-                    age: document.getElementById('age').value,
-                    weight: document.getElementById('weight').value,
-                },
-                factors: {
-                    sport: document.getElementById('sport').value,
-                    tobacco: document.getElementById('tobacco').value,
-                    alcohol: document.getElementById('alcohol').value,
-                    familyHistory: document.getElementById('familyHistory').value
-                }
-            });
-
-        $.ajax({
-            type: 'POST',
-            url: url,
-            processData: false,
-            contentType: false,
-            data: formdata,
-            success: function (response) {
-                content.html(response);
-            }
-        });
-    };
-</script>
