@@ -8,21 +8,24 @@ function connectDB(){
 	$servername = 'localhost';
 	$username = 'backend';
 	$password = 'Toprak123123';
-
-	$con = mysqli_connect($servername,$username,$password);
+	$db_name = 'patientsys';
+	$con = mysqli_connect($servername,$username,$password,$db_name);
 	if(!$con){
 		die('400 '.mysqli_connect_error());
 	}
-	die(200);
+	return $con;
 }
 
+
 function saveData($con,$sql){
+	mysqli_select_db('usersDatabase');
 	if(mysqli_query($con,$sql)){
-		die(200);
+		echo 'saved';
 	}
 	else{
-		die(400);
+		echo mysqli_error($con);
 	}
+	mysqli_close($con);
 }
 
 function getData($con,$sql){
@@ -35,6 +38,7 @@ function getData($con,$sql){
 	else{
 		echo '0 result';
 	}
+	mysqli_close($con);
 }
 
 function predictPatient($predictionFile,$inputData){
