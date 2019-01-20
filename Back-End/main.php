@@ -28,12 +28,28 @@ function saveData($con,$sql){
 	mysqli_close($con);
 }
 
+// function getData($con,$sql){
+// 	$result = mysqli_query($con,$sql);
+// 	$data = array();
+// 	if (mysqli_num_rows($result) > 0){
+// 		while ($row = mysqli_fetch_assoc($result)){
+// 			array_push($data,$row);
+// 		}
+// 		return json_encode($data);
+// 	}
+// 	else{
+// 		echo '0 result';
+// 	}
+// 	mysqli_close($con);
+// }
 function getData($con,$sql){
 	$result = mysqli_query($con,$sql);
 	$data = array();
 	if (mysqli_num_rows($result) > 0){
-		while ($row = mysqli_fetch_assoc($result)){
-			array_push($data,$row);
+		while ($row = mysqli_fetch_all($result)){
+			foreach ($row as $key => $value) {
+				$data[$key] = $value;
+			}
 		}
 		return json_encode($data);
 	}
@@ -42,6 +58,7 @@ function getData($con,$sql){
 	}
 	mysqli_close($con);
 }
+
 
 function predictPatient($predictionFile,$inputData){
 	// $command = escapeshellcmd('/var/www/html/hackathon/AI/physical_prediction.py');
