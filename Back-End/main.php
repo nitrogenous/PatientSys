@@ -6,7 +6,7 @@ function connectDB(){
 
 	$con = mysqli_connect($servername,$username,$password);
 	if(!$con){
-		die(400,' ',mysqli_connect_error());
+		die('400 '.mysqli_connect_error());
 	}
 	die(200);
 }
@@ -32,3 +32,42 @@ function getData($con,$sql){
 	}
 }
 
+function injection($str) {
+	$bad = array(
+		'<!--', '-->',
+		"'", '"',
+		'<', '>',
+		'&', '$',
+		'=',
+		';',
+		'?',
+		'/',
+		'!',
+		'#',
+		'%20',		//space
+		'%22',		// "
+		'%3c',		// <
+		'%253c',	// <
+		'%3e',		// >
+		'%0e',		// >
+		'%28',		// (
+		'%29',		// )
+		'%2528',	// (
+		'%26',		// &
+		'%24',		// $
+		'%3f',		// ?
+		'%3b',		// ;
+		'%3d',		// =
+		'%2F',		// /
+		'%2E',		// .
+		// '46', 	// .
+		// '47'		// /
+	);
+	do
+	{
+		$old = $str;
+		$str = str_replace($bad, ' ', $str);
+	}
+	while ($old !== $str);
+	return $str;	
+}
