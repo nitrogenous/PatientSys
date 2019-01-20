@@ -23,7 +23,7 @@ if(isset($_POST)){
 	}
 	else if('getUsers' == $_POST['getUsers']){
 		$con = connectDB();
-		$sql = 'SELECT * FROM `usersDatabase`';
+		$sql = 'SELECT * FROM `usersDatabase` ORDER BY `patientAvg` DESC';
 		$data = getData($con,$sql);
 		die($data);
 	}
