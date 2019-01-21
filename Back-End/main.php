@@ -3,12 +3,11 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-
 function connectDB(){
-	$servername = 'localhost';
-	$username = 'backend';
-	$password = 'Toprak123123';
-	$db_name = 'patientsys';
+	$servername = $credentials;
+	$username = $credentials;
+	$password = $credentials;
+	$db_name = $credentials;
 	$con = mysqli_connect($servername,$username,$password,$db_name);
 	if(!$con){
 		die('400 '.mysqli_connect_error());
