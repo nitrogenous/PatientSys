@@ -13,10 +13,13 @@ npm run start
 kodlarini yazarak calistirabilirsiniz. Calistirdiktan sonra sizi karsilayan `Landing Page` uzerinden veritabanina hasta girisi yapabilir ardindan girisini yaptiginiz hastalarin aciliyet durumuna gore siralanmis haline `List` sayfasi uzerinden erisebilirsiniz
 **Frameworkler**
 >Yapay Zeka
+
 Yapay zeka kullaniminda `numpy`, `matplotlib` frameworkleri kullanilmistir
 >Back-End
+
 Back-End kisminda `LEMP` sunucu uzerinde `PHP` ile calisilmistir.
 >Fron-End
+
 Front-End gelistirme kisminda `jQuery` kullanilmistir
 >Masaustu Uygulamasi
 `Electron.JS` ile bu sorunun ustesinden gelinmistir
