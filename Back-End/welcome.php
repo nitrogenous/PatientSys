@@ -18,10 +18,10 @@ if(isset($_POST)){
 
 		$con = connectDB();
 		$sql = 'INSERT INTO `usersDatabase`(`patientAvg`, `name`, `surname`, `gender`, `age`, `weight`, `sport`, `tobacco`, `alcohol`, `familyHistory`, `physicalAvg`) VALUES ('.injection($factorsAvg).',"'.injection($_POST['name']).'","'.injection($_POST['surname']).'",'.injection($_POST['gender']).','.injection($_POST['age']).','.injection($_POST['weight']).','.injection($_POST['sport']).','.injection($_POST['tobacco']).','.injection($_POST['alcohol']).','.injection($_POST['familyHistory']).','.injection($physicalAvg).')';
-		// echo saveData($con,$sql);
-		die('save');
+		echo saveData($con,$sql);
+		die();
 	}
-	else if('getUsers' == $_POST['getUsers']){
+	else if('getUsers' == injection($_POST['getUsers'])){
 		$con = connectDB();
 		$sql = 'SELECT * FROM `usersDatabase` ORDER BY `patientAvg` DESC';
 		$data = getData($con,$sql);
