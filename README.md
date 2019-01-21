@@ -22,6 +22,7 @@ Back-End kisminda `LEMP` sunucu uzerinde `PHP` ile calisilmistir.
 
 Front-End gelistirme kisminda `jQuery` kullanilmistir
 >Masaustu Uygulamasi
+
 `Electron.JS` ile bu sorunun ustesinden gelinmistir
 
 
