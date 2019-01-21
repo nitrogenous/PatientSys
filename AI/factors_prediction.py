@@ -31,15 +31,6 @@ userData = json.loads(userData)
 
 # print neural.weight
 
-
-
-
-
-
-
-
-
-
 trainData_inputs = array([
 	[0.0,0.0,0.0,1.0,0.9166666667],
 	[1.0,0.0,1.0,0.0,0.2666666667],
