@@ -109,8 +109,19 @@
             transform: translateY(4px);
         }
       
+        #patientText {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 25px;
+        }
+        #sysText{
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
         #userInput{
-            margin-top: 20vh;
+            margin-top: 10vh;
             text-align: center;
             justify-content: center;
         }
@@ -126,6 +137,7 @@
  
 <body>
     <form id='userInput'>
+        <span id='patientText'>Patient</span><span id='sysText'>Sys</span><br />
         <input type='hidden' name='save' value='save' />
         <input type='text' id='name' placeholder='Name' name='name'>
         <input type='text' id='surname' placeholder='Surname' name='surname' /><br />
