@@ -2,6 +2,8 @@
 
 PatientSys,hastalarin tedavi gorme siralarini yapay zeka ile daha ileri tasiyarak durumu kritik olan ve ilerleyen zamanlarda olabilecek hastalari tespit edip onlara oncelik veren bir paket programidir. PatientSys ile bir cok hastanin hayatini kurtarip ve bir cok hastaninda tedavi bekleme sureclerini kisaltarak tedavi bekleme surecindeki acilarina son verip, bu surecte olusabilecek yeni hastaliklarin onune geciyor ve hali hazirda bulunan hastaliga erken mudahele etme firsatini yakaliyoruz.
 
+https://docs.google.com/presentation/d/1yxPaGNI5aUjwMM8_bHnz3M3_mRgSjO5jTxel-qW_gcU/edit?usp=sharing
+
 **Kullanim**
 
 >Online Demo
