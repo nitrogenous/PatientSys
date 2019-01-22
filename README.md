@@ -4,7 +4,7 @@ FYI this version works for cancer
 
 PatientSys,hastalarin tedavi gorme siralarini yapay zeka ile daha ileri tasiyarak durumu kritik olan ve ilerleyen zamanlarda olabilecek hastalari tespit edip onlara oncelik veren bir paket programidir. PatientSys ile bir cok hastanin hayatini kurtarip ve bir cok hastaninda tedavi bekleme sureclerini kisaltarak tedavi bekleme surecindeki acilarina son verip, bu surecte olusabilecek yeni hastaliklarin onune geciyor ve hali hazirda bulunan hastaliga erken mudahele etme firsatini yakaliyoruz.
 
-In the United Kingdom, 70,000 patients are waiting on surgery. 9,600 of these patients have already waited more than a year. This waiting can be a disaster for critical patients and future critical patients. Their sickness will be bad or they will be dead at this waiting. PatientSys is sorting patients by the urgency with machine learning thus saving people lives
+In the United Kingdom, 70,000 patients are waiting on surgery. 9,600 of these patients have already waited more than a year. This waiting can be a disaster for critical patients and future critical patients. Their sickness will be worst or they will die in this time. PatientSys is sorting patients by the urgency with machine learning thus saving people lives
 
 PatientSys Presentation,
 
