@@ -4,6 +4,15 @@ PatientSys,hastalarin tedavi gorme siralarini yapay zeka ile daha ileri tasiyara
 
 **Kullanim**
 
+>Online Demo
+
+http://bit.ly/patientsys
+
+
+
+>Paket Programi Olarak
+
+
 Hali hazirda bir sunucu uzerinde calismakta olan PatientSys programini, repo'yu `clone` ettikten sonra `clone` ettigimiz klasore girip terminal uzerinden;
 ```
 cd Electron
