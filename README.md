@@ -16,6 +16,14 @@ kodlarini yazarak calistirabilirsiniz. Calistirdiktan sonra sizi karsilayan `Lan
 >Yapay Zeka
 
 Yapay zeka kullaniminda `numpy`, `matplotlib` frameworkleri kullanilmistir
+
+Yapay Zeka Egitim Verisi (Train Dataset): 
+
+Physical Dataset: https://docs.google.com/spreadsheets/d/1Sa6qt0SwqokViqVQwXap5eoH4BrxcZOKZXxswQTs4p8/edit#gid=0
+
+Factors Dataset: https://docs.google.com/spreadsheets/d/13f18Qc6hzw4-RN94PeLewM5PTiDrruWpdJGf_kZRvas/edit#gid=0
+
+
 >Back-End
 
 Back-End kisminda `LEMP` sunucu uzerinde `PHP` ile calisilmistir.
