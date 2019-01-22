@@ -40,20 +40,31 @@ Veriler v0.1 versiyonu oldugu icin ve demo esnasinda ogrenim suresini uzatmamasi
 
 >Yas
 
-0.15 = 0-15 Yas Arasi            
+0.15 = 0-15 Yas Arasi     
+
 0.30 = 15-30 Yas Arasi
+
 0.45 = 30-45 Yas Arasi
+
 0.60 = 45-60 Yas Arasi
+
 0.75 = 60-75 Yas Arasi
+
 0.90 = 90-105 Yas Arasi
+
 1.00 = 105 ve Uzeri
+
 
 >Kilo
 
 0.25 = 0-25 Arasi
+
 0.50 = 25-50 Arasi
+
 0.75 = 50-75 Arasi
+
 1.00 = 75-100 Arasi ve Uzeri
+
 
 >Hastalik ve Fizik Ortalamasi (Sickness Avg, Physic Avg)
 
