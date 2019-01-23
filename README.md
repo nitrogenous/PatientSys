@@ -107,6 +107,8 @@ This two value is predicting by machine learning. Machine learning comparing pat
 
 >Spor, Sigara, Alkol, Aile Gecmisi Hakkinda/About Sports, Tobacoo, Alcohol, Family History
 
+Family History means is anyone dead patient's family because of cancer.
+
 1 pozitif 0 negatif anlamlarina gelmektedir
 
 1 means positive 0 means negative.
