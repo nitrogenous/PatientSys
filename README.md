@@ -1,12 +1,12 @@
 FYI this version works for cancer
 
-**PatientSys**
+**Triage Plus**
 
-PatientSys,hastalarin tedavi gorme siralarini yapay zeka ile daha ileri tasiyarak durumu kritik olan ve ilerleyen zamanlarda olabilecek hastalari tespit edip onlara oncelik veren bir paket programidir. PatientSys ile bir cok hastanin hayatini kurtarip ve bir cok hastaninda tedavi bekleme sureclerini kisaltarak tedavi bekleme surecindeki acilarina son verip, bu surecte olusabilecek yeni hastaliklarin onune geciyor ve hali hazirda bulunan hastaliga erken mudahele etme firsatini yakaliyoruz.
+Triage Plus,hastalarin tedavi gorme siralarini yapay zeka ile daha ileri tasiyarak durumu kritik olan ve ilerleyen zamanlarda olabilecek hastalari tespit edip onlara oncelik veren bir paket programidir. Triage Plus ile bir cok hastanin hayatini kurtarip ve bir cok hastaninda tedavi bekleme sureclerini kisaltarak tedavi bekleme surecindeki acilarina son verip, bu surecte olusabilecek yeni hastaliklarin onune geciyor ve hali hazirda bulunan hastaliga erken mudahele etme firsatini yakaliyoruz.
 
-In the United Kingdom, 70,000 patients are waiting on surgery. 9,600 of these patients have already waited more than a year. This waiting can be a disaster for critical patients and future critical patients. Their sickness will be worst or they will die in this time. PatientSys is sorting patients by the urgency with machine learning thus saving people lives
+In the United Kingdom, 70,000 patients are waiting on surgery. 9,600 of these patients have already waited more than a year. This waiting can be a disaster for critical patients and future critical patients. Their sickness will be worst or they will die in this time. Triage Plus is sorting patients by the urgency with machine learning thus saving people lives
 
-PatientSys Presentation,
+Triage Plus Presentation,
 
 https://docs.google.com/presentation/d/1yxPaGNI5aUjwMM8_bHnz3M3_mRgSjO5jTxel-qW_gcU/edit?usp=sharing
 
@@ -14,14 +14,14 @@ https://docs.google.com/presentation/d/1yxPaGNI5aUjwMM8_bHnz3M3_mRgSjO5jTxel-qW_
 
 >Online Demo
 
-http://bit.ly/patientsys
+http://bit.ly/triageplus
 
 
 
 >Desktop App
 
 
-Hali hazirda bir sunucu uzerinde calismakta olan PatientSys programini, repo'yu `clone` ettikten sonra `clone` ettigimiz klasore girip terminal uzerinden;
+Hali hazirda bir sunucu uzerinde calismakta olan Triage Plus programini, repo'yu `clone` ettikten sonra `clone` ettigimiz klasore girip terminal uzerinden;
 
 It's already working on a server. You only need to clone or download the repository then write this code's to terminal in a local directory of a repository;
 
