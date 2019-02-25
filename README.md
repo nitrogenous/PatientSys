@@ -8,7 +8,7 @@ In the United Kingdom, 70,000 patients are waiting on surgery. 9,600 of these pa
 
 Triage Plus Presentation,
 
-https://docs.google.com/presentation/d/1yxPaGNI5aUjwMM8_bHnz3M3_mRgSjO5jTxel-qW_gcU/edit?usp=sharing
+https://docs.google.com/presentation/d/11Y6qu85kkPgL916XpgxeP_-i0RVwMEX47qAjB7_1auU/edit?usp=sharing
 
 **Kullanim/Usage**
 
